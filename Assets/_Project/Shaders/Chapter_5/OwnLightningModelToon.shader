@@ -29,12 +29,16 @@
         struct Input
         {
             float2 uv_MainTex;
+            float3 viewDir;
         };
 
 
         void surf (Input IN, inout SurfaceOutput o)
         {
-           o.Albedo = _Color.rgb;
+           float dprod = dot(o.Normal, IN.viewDir);
+           float hlf = dprod * 0.5 + 0.5;
+           float3 txture = tex2D(_RampTex, float2(hlf, hlf));
+           o.Albedo = _Color.rgb * txture;
         }
         ENDCG
     }

@@ -18,7 +18,7 @@
             float nh = max(0, dot(so.Normal, h));
             float spec = pow(nh, 48);
             half4 color;
-            color.rgb = (so.Albedo * _LightColor0 * diff + _LightColor0 * spec) * atten;
+            color.rgb =  (so.Albedo * _LightColor0.rgb * diff + _LightColor0.rgb * spec) * atten * _SinTime;
             color.a = so.Alpha;
             return color;
         }
