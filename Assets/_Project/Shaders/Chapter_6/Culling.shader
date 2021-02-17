@@ -1,4 +1,4 @@
-﻿Shader "Custom/Blending"
+﻿Shader "Custom/Cullong"
 {
     Properties
     {
@@ -7,8 +7,9 @@
     SubShader
     {
         Tags {"Queue" = "Transparent"}
-        Blend DstColor Zero
-       
+        Blend SrcAlpha OneMinusSrcAlpha
+        Cull Off
+        
         Pass
         {
             SetTexture [_MainTex] {combine texture}
