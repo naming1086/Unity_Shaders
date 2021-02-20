@@ -1,4 +1,4 @@
-﻿Shader "Unlit/FragmentColouring"
+﻿Shader "Custom/VertexColouring"
 {
     SubShader
     {
