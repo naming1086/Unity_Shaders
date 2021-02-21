@@ -35,7 +35,9 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col;
+                fixed4 col = 0;
+                col.r = i.vertex.x/1000;
+                col.g = i.vertex.y/1000;
                 return col;
             }
             ENDCG
