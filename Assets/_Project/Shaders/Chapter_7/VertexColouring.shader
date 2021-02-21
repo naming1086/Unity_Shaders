@@ -1,4 +1,4 @@
-﻿Shader "Unlit/VertexColouring"
+﻿Shader "Custom/VertexColouring"
 {
     SubShader
     {
@@ -24,7 +24,7 @@
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.color.r = (v.vertex.x+2* sin(_Time)) /(5);
+                o.color.r = v.vertex.x;
                 o.color.g = 0;
                 o.color.b = 0;
                 return o;

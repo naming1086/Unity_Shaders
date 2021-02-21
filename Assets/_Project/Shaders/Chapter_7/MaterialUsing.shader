@@ -1,10 +1,15 @@
-﻿Shader "Custom/FragmentColouring"
+﻿Shader "Custom/MaterialUsing"
 {
-    SubShader
+    Properties
     {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
-
+        _MainTexture("Maintexture", 2D) = "white"{}    
+        _Scale_UV_X("Scale X", Range(0, 10)) = 1 
+        _Scale_UV_Y("Scale Y", Range(0, 10)) = 1 
+    }
+    SubShader
+    {        
+        Tags { "Queue"="Transparent" }
+        GrabPass{}
         Pass
         {
             CGPROGRAM
@@ -12,6 +17,11 @@
             #pragma fragment frag
             #include "UnityCG.cginc"
 
+            sampler2D _MainTexture;
+            float4 _MainTexture_ST;
+            float _Scale_UV_X;
+            float _Scale_UV_Y;
+            sampler2D _GrabTexture;
             struct appdata
             {
                 float4 vertex : POSITION;
@@ -30,14 +40,15 @@
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTexture);
+                o.uv.x = sin(o.uv.x * _Scale_UV_X) ;
+                o.uv.y = sin(o.uv.y  * _Scale_UV_Y);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col;
-                col.r = i.vertex.x/1000;
-                col.g = i.vertex.y/1000;
+                fixed4 col = tex2D(_GrabTexture, i.uv);
                 return col;
             }
             ENDCG

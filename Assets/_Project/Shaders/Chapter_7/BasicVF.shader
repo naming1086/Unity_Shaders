@@ -1,4 +1,4 @@
-﻿Shader "Unlit/BasicVF"
+﻿Shader "Custom/BasicVF"
 {
     Properties
     {
