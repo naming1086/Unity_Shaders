@@ -357,7 +357,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 10
   far clip plane: 1000
   field of view: 86.589775
   orthographic: 0
@@ -384,13 +384,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0000087072885, w: 1}
-  m_LocalPosition: {x: -25.7, y: 1.0011866, z: -7530}
+  m_LocalRotation: {x: 0.2464474, y: -0.0000021458902, z: 0.000008438732, w: 0.9691562}
+  m_LocalPosition: {x: -25.7, y: 4.07, z: -7420.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.001}
+  m_LocalEulerAnglesHint: {x: 28.535002, y: 0, z: 0.001}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,14 +417,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ba27c525131a54f8ad2e5e0ae68b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cloudShader: {fileID: 4800000, guid: cc25d3516aad2db41a9f0abcb90dd5dd, type: 3}
+  CloudShader: {fileID: 4800000, guid: cc25d3516aad2db41a9f0abcb90dd5dd, type: 3}
   MinHeight: 0
   MaxHeight: 5
-  FadeDistance: 2
-  Scale: 5
+  FadeDist: 2
+  Scale: 1
   Steps: 50
   ValueNoiseImage: {fileID: 2800000, guid: 308d1c02367f0f445b999f3521b66bf7, type: 3}
-  SunPos: {fileID: 705507995}
+  Sun: {fileID: 705507995}
 --- !u!1 &1778627463
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1778627464
 BoxCollider:
   m_ObjectHideFlags: 0
